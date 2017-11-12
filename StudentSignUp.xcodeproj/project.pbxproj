@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */; };
-		329E7AF21FB5EA3E00054E1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AF11FB5EA3E00054E1D /* ViewController.swift */; };
+		329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */; };
 		329E7AF51FB5EA3E00054E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF31FB5EA3E00054E1D /* Main.storyboard */; };
 		329E7AF71FB5EA3E00054E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF61FB5EA3E00054E1D /* Assets.xcassets */; };
 		329E7AFA1FB5EA3E00054E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF81FB5EA3E00054E1D /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		329E7AEC1FB5EA3E00054E1D /* StudentSignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentSignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		329E7AF11FB5EA3E00054E1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		329E7AF41FB5EA3E00054E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		329E7AF61FB5EA3E00054E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		329E7AF91FB5EA3E00054E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */,
-				329E7AF11FB5EA3E00054E1D /* ViewController.swift */,
+				329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */,
 				329E7AF31FB5EA3E00054E1D /* Main.storyboard */,
 				329E7AF61FB5EA3E00054E1D /* Assets.xcassets */,
 				329E7AF81FB5EA3E00054E1D /* LaunchScreen.storyboard */,
@@ -110,8 +110,9 @@
 		329E7B031FB5EA3F00054E1D /* StudentSignUpTests */ = {
 			isa = PBXGroup;
 			children = (
-				329E7B041FB5EA3F00054E1D /* StudentSignUpTests.swift */,
-				329E7B061FB5EA3F00054E1D /* Info.plist */,
+				329E7B1D1FB5EBE800054E1D /* Cases */,
+				329E7B1E1FB5EBF400054E1D /* Data */,
+				329E7B1F1FB5EBFB00054E1D /* Supporting Files */,
 			);
 			path = StudentSignUpTests;
 			sourceTree = "<group>";
@@ -123,6 +124,29 @@
 				329E7B111FB5EA3F00054E1D /* Info.plist */,
 			);
 			path = StudentSignUpUITests;
+			sourceTree = "<group>";
+		};
+		329E7B1D1FB5EBE800054E1D /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				329E7B041FB5EA3F00054E1D /* StudentSignUpTests.swift */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		329E7B1E1FB5EBF400054E1D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		329E7B1F1FB5EBFB00054E1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				329E7B061FB5EA3F00054E1D /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				329E7AF21FB5EA3E00054E1D /* ViewController.swift in Sources */,
+				329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */,
 				329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
