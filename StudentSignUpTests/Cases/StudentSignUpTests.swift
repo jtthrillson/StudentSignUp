@@ -33,4 +33,12 @@ class StudentSignUpTests: XCTestCase {
         }
     }
     
+    func testStudentModel() {
+        // test that ~3 views exist, two being buttons.
+    }
+    
+    func testUpload() {
+        // test that ~3 views exist, two being buttons.
+    }
+    
 }

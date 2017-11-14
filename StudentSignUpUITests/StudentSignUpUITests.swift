@@ -32,5 +32,27 @@ class StudentSignUpUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+
+    func testInitialViews() {
+        // test that ~3 views exist, two being buttons.
+    }
+
+    func testUploadButton() {
+        // test the upload button with no data
+        
+        // test the upload button with data
+    }
     
+    func testNewStudentButton() {
+        // test that button takes us to the new student view
+    }
+
+    func testNewStudentInitial() {
+        // test that ~5 text fields exist, along with two buttons.
+    }
+
+    func testNewStudentFields() {
+        // test acceptable input for fields
+    }
+
 }

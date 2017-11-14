@@ -74,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		329E766D1FB9F06500637FCD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		329E7AE31FB5EA3E00054E1D = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +105,8 @@
 		329E7AEE1FB5EA3E00054E1D /* StudentSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				329E766D1FB9F06500637FCD /* UI */,
 				329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */,
-				329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */,
 				329E7AF31FB5EA3E00054E1D /* Main.storyboard */,
 				329E7AF61FB5EA3E00054E1D /* Assets.xcassets */,
 				329E7AF81FB5EA3E00054E1D /* LaunchScreen.storyboard */,
