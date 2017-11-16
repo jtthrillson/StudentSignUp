@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		329E766F1FBB1E5900637FCD /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */; };
+		329E76721FBB1E7900637FCD /* NewStudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76711FBB1E7900637FCD /* NewStudentModel.swift */; };
 		329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */; };
 		329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */; };
 		329E7AF51FB5EA3E00054E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF31FB5EA3E00054E1D /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentViewController.swift; sourceTree = "<group>"; };
+		329E76711FBB1E7900637FCD /* NewStudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentModel.swift; sourceTree = "<group>"; };
 		329E7AEC1FB5EA3E00054E1D /* StudentSignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentSignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
@@ -78,8 +82,17 @@
 			isa = PBXGroup;
 			children = (
 				329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */,
+				329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		329E76701FBB1E6300637FCD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				329E76711FBB1E7900637FCD /* NewStudentModel.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		329E7AE31FB5EA3E00054E1D = {
@@ -105,6 +118,7 @@
 		329E7AEE1FB5EA3E00054E1D /* StudentSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				329E76701FBB1E6300637FCD /* Data */,
 				329E766D1FB9F06500637FCD /* UI */,
 				329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */,
 				329E7AF31FB5EA3E00054E1D /* Main.storyboard */,
@@ -291,7 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329E766F1FBB1E5900637FCD /* NewStudentViewController.swift in Sources */,
 				329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */,
+				329E76721FBB1E7900637FCD /* NewStudentModel.swift in Sources */,
 				329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

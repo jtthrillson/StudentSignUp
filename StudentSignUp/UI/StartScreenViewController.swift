@@ -7,19 +7,16 @@
 //
 
 import UIKit
+//import New
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backgroundYellow = UIColor.init(red: 225.0/255.0, green: 250.0/255.0, blue: 90.0/255.0, alpha: 1.0)
+        let unidaysYellow = UIColor.init(red: 225.0/255.0, green: 250.0/255.0, blue: 90.0/255.0, alpha: 1.0)
 
-        self.view.backgroundColor = backgroundYellow
-
-        let spacerViewA = UIView()
-        spacerViewA.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(spacerViewA)
+        self.view.backgroundColor = unidaysYellow
 
         let unidaysView = UIImageView(image: UIImage(imageLiteralResourceName: "UNiDAYS"))
         unidaysView.contentMode = .scaleAspectFit;
@@ -27,36 +24,30 @@ class ViewController: UIViewController {
         unidaysView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(unidaysView)
 
-        let spacerViewB = UIView()
-        spacerViewB.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(spacerViewB)
-
         let uploadButton = UIButton(type: UIButtonType.system) as UIButton
         
         uploadButton.backgroundColor = UIColor.clear
         uploadButton.setImage(UIImage(imageLiteralResourceName: "upload"), for: .normal)
-//        uploadButton.setTitle("Upload", for: UIControlState.normal)
         uploadButton.tintColor = UIColor.black
         uploadButton.translatesAutoresizingMaskIntoConstraints = false
-//        uploadButton.addTarget(self, action: #selector(self.uploadAction(_:)), for: .touchUpInside)
+        uploadButton.addTarget(self, action: #selector(uploadAction), for: .touchUpInside)
         self.view.addSubview(uploadButton)
         
-        let spacerViewC = UIView()
-        spacerViewC.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(spacerViewC)
-
         let newStudentButton = UIButton(type: UIButtonType.system) as UIButton
         newStudentButton.backgroundColor = UIColor.clear
-//        newStudentButton.setTitle("New Student", for: UIControlState.normal)
         newStudentButton.setImage(UIImage(imageLiteralResourceName: "new_user"), for: .normal)
         newStudentButton.tintColor = UIColor.black
         newStudentButton.translatesAutoresizingMaskIntoConstraints = false
-//        newStudentButton.addTarget(self, action: #selector(self.newStudentAction(_:)), for: .touchUpInside)
+        newStudentButton.addTarget(self, action: #selector(addNewStudent), for: .touchUpInside)
         self.view.addSubview(newStudentButton)
-        
-        let spacerViewD = UIView()
-        spacerViewD.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(spacerViewD)
+
+        var spacers: [UIView] = []
+        for _ in 0...4 {
+            let spacerView = UIView()
+            spacerView.translatesAutoresizingMaskIntoConstraints = false
+            spacers.append(spacerView)
+            self.view.addSubview(spacerView)
+        }
 
         // Set up autolayout constraints
         // **********************************************************
@@ -66,36 +57,36 @@ class ViewController: UIViewController {
         // Autosizing invisible spacer views between each important view
 
         let importantViews = [unidaysView, newStudentButton, uploadButton]
-        let spacerViews = [spacerViewA, spacerViewB, spacerViewC, spacerViewD]
+//        let spacerViews = [spacerViewA, spacerViewB, spacerViewC, spacerViewD]
 
         let allViews = ["unidaysView": unidaysView,
                      "newStudentButton": newStudentButton,
                      "uploadButton": uploadButton,
-                     "spacerViewA": spacerViewA,
-                     "spacerViewB": spacerViewB,
-                     "spacerViewC": spacerViewC,
-                     "spacerViewD": spacerViewD]
+                     "spacerView0": spacers[0],
+                     "spacerView1": spacers[1],
+                     "spacerView2": spacers[2],
+                     "spacerView3": spacers[3]]
         
         var allConstraints : [NSLayoutConstraint] = []
 
         for view in importantViews {
             let widthConstraint = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 250)
+            allConstraints.append(widthConstraint)
             let heightConstraint = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: ((view === unidaysView) ? 100 : 200))
+            allConstraints.append(heightConstraint)
             let xConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
-            allConstraints.insert(widthConstraint, at: 0)
-            allConstraints.insert(heightConstraint, at: 0)
-            allConstraints.insert(xConstraint, at: 0)
+            allConstraints.append(xConstraint)
         }
 
-        let equalHeightConstraintA = NSLayoutConstraint(item: spacerViewA, attribute: .height, relatedBy: .equal, toItem: spacerViewD, attribute: .height, multiplier: 1.0, constant: 0)
-        allConstraints.insert(equalHeightConstraintA, at: 0)
-        let equalHeightConstraintB = NSLayoutConstraint(item: spacerViewB, attribute: .height, relatedBy: .equal, toItem: spacerViewA, attribute: .height, multiplier: 0.5, constant: 0)
-        allConstraints.insert(equalHeightConstraintB, at: 0)
-        let equalHeightConstraintC = NSLayoutConstraint(item: spacerViewC, attribute: .height, relatedBy: .equal, toItem: spacerViewA, attribute: .height, multiplier: 0.1, constant: 0)
-        allConstraints.insert(equalHeightConstraintC, at: 0)
+        let equalHeightConstraintA = NSLayoutConstraint(item: spacers[0], attribute: .height, relatedBy: .equal, toItem: spacers[3], attribute: .height, multiplier: 1.0, constant: 0)
+        allConstraints.append(equalHeightConstraintA)
+        let equalHeightConstraintB = NSLayoutConstraint(item: spacers[1], attribute: .height, relatedBy: .equal, toItem: spacers[0], attribute: .height, multiplier: 0.5, constant: 0)
+        allConstraints.append(equalHeightConstraintB)
+        let equalHeightConstraintC = NSLayoutConstraint(item: spacers[2], attribute: .height, relatedBy: .equal, toItem: spacers[0], attribute: .height, multiplier: 0.1, constant: 0)
+        allConstraints.append(equalHeightConstraintC)
 
         let verticalSpacingConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[spacerViewA]-[unidaysView]-[spacerViewB]-[uploadButton]-[spacerViewC]-[newStudentButton]-[spacerViewD]-|", options: [], metrics: nil, views: allViews)
+            withVisualFormat: "V:|-[spacerView0]-[unidaysView]-[spacerView1]-[uploadButton]-[spacerView2]-[newStudentButton]-[spacerView3]-|", options: [], metrics: nil, views: allViews)
         allConstraints += verticalSpacingConstraints
 
         NSLayoutConstraint.activate(allConstraints)
@@ -107,8 +98,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func uploadAction(sender:UIButton!) {
-        print("Button tapped")
+    @objc func uploadAction(sender:UIButton!) {
+        print("Uploading")
+        let alert = UIAlertController(title: "Uploading...", message: "Please wait", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func addNewStudent(sender: UIButton!) {
+        let newStudentViewController:NewStudentViewController = NewStudentViewController()
+        
+        self.present(newStudentViewController, animated: true, completion: nil)        
     }
 }
 
