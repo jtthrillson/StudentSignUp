@@ -13,11 +13,11 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
     let stackView = UIStackView()
     var showingGenderPicker = false
     var showingUniversityPicker = false
-    var firstNameTextfield : UITextField?
-    var lastNameTextfield : UITextField?
-    var genderDropDown : UITextField?
-    var emailTextfield : UITextField?
-    var universityDropDown : UITextField?
+    var firstNameTextfield : UITextField!
+    var lastNameTextfield : UITextField!
+    var genderDropDown : UITextField!
+    var emailTextfield : UITextField!
+    var universityDropDown : UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,19 +46,19 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         stackView.addArrangedSubview(newStudentLabel)
 
         firstNameTextfield = self.textFieldFactory(name: "First Name")
-        stackView.addArrangedSubview(firstNameTextfield!)
+        stackView.addArrangedSubview(firstNameTextfield)
         
         lastNameTextfield = self.textFieldFactory(name: "Last Name")
-        stackView.addArrangedSubview(lastNameTextfield!)
+        stackView.addArrangedSubview(lastNameTextfield)
         
         genderDropDown = self.textFieldFactory(name: "Gender")
-        stackView.addArrangedSubview(genderDropDown!)
+        stackView.addArrangedSubview(genderDropDown)
 
         emailTextfield = self.textFieldFactory(name: "Email Address")
-        stackView.addArrangedSubview(emailTextfield!)
+        stackView.addArrangedSubview(emailTextfield)
         
         universityDropDown = self.textFieldFactory(name: "University")
-        stackView.addArrangedSubview(universityDropDown!)
+        stackView.addArrangedSubview(universityDropDown)
         
         let addStudentButton = UIButton(type: UIButtonType.system) as UIButton
         addStudentButton.backgroundColor = unidaysGreen
@@ -89,21 +89,27 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
             stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8.0).isActive = true
             
         }
+        
+        let picker = UIPickerView()
+        picker.delegate = self
+        picker.dataSource = self
+        genderDropDown.inputView = picker
+        universityDropDown.inputView = picker
     }
     
     // MARK: Button Actions
 
     @objc func addStudentAction(sender: UIButton!) {
         var errorMsg : String = ""
-        if (firstNameTextfield?.text?.count)! < 1 {
+        if (firstNameTextfield.text?.count)! < 1 {
             errorMsg = "First Name Required"
-        } else if (lastNameTextfield?.text?.count)! < 1 {
+        } else if (lastNameTextfield.text?.count)! < 1 {
             errorMsg = "Last Name Required"
-        } else if (genderDropDown?.text?.count)! < 1 {
+        } else if (genderDropDown.text?.count)! < 1 {
             errorMsg = "Gender Required"
-        } else if (emailTextfield?.text?.count)! < 1 {
+        } else if (emailTextfield.text?.count)! < 1 {
             errorMsg = "Email Required"
-        } else if (universityDropDown?.text?.count)! < 1 {
+        } else if (universityDropDown.text?.count)! < 1 {
             errorMsg = "University Required"
         }
         
@@ -124,6 +130,7 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func showPicker() {
+        return
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         alert.isModalInPopover = true
         
@@ -132,6 +139,14 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         picker.delegate = self
         picker.dataSource = self
+        
+        if showingGenderPicker {
+            genderDropDown.inputView = picker
+        }
+        if showingUniversityPicker {
+            universityDropDown.inputView = picker
+        }
+
         
         alert.view.addSubview(picker)
         
@@ -162,7 +177,7 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func saveData() {
-        let newStudentData = Student(firstName: firstNameTextfield?.text, lastName: lastNameTextfield?.text, gender: genderDropDown?.text, email: emailTextfield?.text, university: universityDropDown?.text)
+        let newStudentData = Student(firstName: firstNameTextfield.text, lastName: lastNameTextfield.text, gender: genderDropDown.text, email: emailTextfield.text, university: universityDropDown.text)
         
         dataManager?.saveNewStudentData(newData: newStudentData)
     }
@@ -197,18 +212,15 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func pickerView(_: UIPickerView, didSelectRow: Int, inComponent: Int) {
         if showingGenderPicker {
-            self.genderDropDown?.text = Constants.genders[didSelectRow]
+            self.genderDropDown.text = Constants.genders[didSelectRow]
+            self.emailTextfield.becomeFirstResponder()
         }
         if showingUniversityPicker {
-            self.universityDropDown?.text = Constants.universityList[didSelectRow]
+            self.universityDropDown.text = Constants.universityList[didSelectRow]
+            self.universityDropDown.resignFirstResponder()
         }
-        self.dismiss(animated: true, completion: {
-            if self.showingGenderPicker {
-                self.showingGenderPicker = false
-                self.emailTextfield?.becomeFirstResponder()
-            }
-            self.showingUniversityPicker = false
-        })
+        self.showingGenderPicker = false
+        self.showingUniversityPicker = false
     }
     
     // MARK: UITextFieldDelegate Functions
@@ -217,13 +229,9 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         showingUniversityPicker = false
         if textField === genderDropDown {
             showingGenderPicker = true
-            showPicker()
-            return false
         }
         else if textField === universityDropDown {
             showingUniversityPicker = true
-            showPicker()
-            return false
         }
 
         return true
@@ -231,20 +239,20 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField === firstNameTextfield {
-            lastNameTextfield?.becomeFirstResponder()
+            lastNameTextfield.becomeFirstResponder()
         } else if textField === lastNameTextfield {
             textField.resignFirstResponder()
-            genderDropDown?.becomeFirstResponder()
+            genderDropDown.becomeFirstResponder()
         } else if textField === genderDropDown {
-            emailTextfield?.becomeFirstResponder()
+            emailTextfield.becomeFirstResponder()
         } else if textField === emailTextfield {
             textField.resignFirstResponder()
-            universityDropDown?.becomeFirstResponder()
+            universityDropDown.becomeFirstResponder()
         } else if textField === universityDropDown {
             textField.resignFirstResponder()
         } else {
             textField.resignFirstResponder()
-            addStudentAction(sender: nil)
+//            addStudentAction(sender: nil)
         }
         return false
     }
