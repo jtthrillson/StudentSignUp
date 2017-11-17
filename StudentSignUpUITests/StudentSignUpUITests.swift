@@ -8,6 +8,8 @@
 
 import XCTest
 
+// TODO : Learn how to make UI Tests
+
 class StudentSignUpUITests: XCTestCase {
         
     override func setUp() {
