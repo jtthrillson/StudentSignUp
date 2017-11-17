@@ -10,12 +10,23 @@
 		329E766F1FBB1E5900637FCD /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */; };
 		329E76721FBB1E7900637FCD /* NewStudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76711FBB1E7900637FCD /* NewStudentModel.swift */; };
 		329E76741FBDC21400637FCD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76731FBDC21400637FCD /* DataManager.swift */; };
+		329E76761FBEEC0E00637FCD /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76751FBEEC0E00637FCD /* ColorPalette.swift */; };
+		329E767E1FBF235200637FCD /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E767D1FBF235200637FCD /* DataManagerTests.swift */; };
+		329E767F1FBF239D00637FCD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76731FBDC21400637FCD /* DataManager.swift */; };
+		329E76811FBF23A200637FCD /* NewStudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76711FBB1E7900637FCD /* NewStudentModel.swift */; };
+		329E76821FBF23A200637FCD /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76751FBEEC0E00637FCD /* ColorPalette.swift */; };
+		329E76851FBF23AA00637FCD /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */; };
+		329E76861FBF23AA00637FCD /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */; };
+		329E76871FBF25E800637FCD /* NewStudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76711FBB1E7900637FCD /* NewStudentModel.swift */; };
+		329E76881FBF25E800637FCD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76731FBDC21400637FCD /* DataManager.swift */; };
+		329E76891FBF25E800637FCD /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76751FBEEC0E00637FCD /* ColorPalette.swift */; };
+		329E768A1FBF25EB00637FCD /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */; };
+		329E768B1FBF25EB00637FCD /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */; };
 		329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */; };
 		329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */; };
 		329E7AF51FB5EA3E00054E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF31FB5EA3E00054E1D /* Main.storyboard */; };
 		329E7AF71FB5EA3E00054E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF61FB5EA3E00054E1D /* Assets.xcassets */; };
 		329E7AFA1FB5EA3E00054E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF81FB5EA3E00054E1D /* LaunchScreen.storyboard */; };
-		329E7B051FB5EA3F00054E1D /* StudentSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7B041FB5EA3F00054E1D /* StudentSignUpTests.swift */; };
 		329E7B101FB5EA3F00054E1D /* StudentSignUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7B0F1FB5EA3F00054E1D /* StudentSignUpUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +51,8 @@
 		329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentViewController.swift; sourceTree = "<group>"; };
 		329E76711FBB1E7900637FCD /* NewStudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentModel.swift; sourceTree = "<group>"; };
 		329E76731FBDC21400637FCD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		329E76751FBEEC0E00637FCD /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		329E767D1FBF235200637FCD /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		329E7AEC1FB5EA3E00054E1D /* StudentSignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentSignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +61,6 @@
 		329E7AF91FB5EA3E00054E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		329E7AFB1FB5EA3E00054E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		329E7B001FB5EA3F00054E1D /* StudentSignUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudentSignUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		329E7B041FB5EA3F00054E1D /* StudentSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpTests.swift; sourceTree = "<group>"; };
 		329E7B061FB5EA3F00054E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		329E7B0B1FB5EA3F00054E1D /* StudentSignUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudentSignUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		329E7B0F1FB5EA3F00054E1D /* StudentSignUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpUITests.swift; sourceTree = "<group>"; };
@@ -94,6 +106,7 @@
 			children = (
 				329E76711FBB1E7900637FCD /* NewStudentModel.swift */,
 				329E76731FBDC21400637FCD /* DataManager.swift */,
+				329E76751FBEEC0E00637FCD /* ColorPalette.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -135,6 +148,7 @@
 		329E7B031FB5EA3F00054E1D /* StudentSignUpTests */ = {
 			isa = PBXGroup;
 			children = (
+				329E7B061FB5EA3F00054E1D /* Info.plist */,
 				329E7B1D1FB5EBE800054E1D /* Cases */,
 				329E7B1E1FB5EBF400054E1D /* Data */,
 				329E7B1F1FB5EBFB00054E1D /* Supporting Files */,
@@ -154,7 +168,7 @@
 		329E7B1D1FB5EBE800054E1D /* Cases */ = {
 			isa = PBXGroup;
 			children = (
-				329E7B041FB5EA3F00054E1D /* StudentSignUpTests.swift */,
+				329E767D1FBF235200637FCD /* DataManagerTests.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -169,7 +183,6 @@
 		329E7B1F1FB5EBFB00054E1D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				329E7B061FB5EA3F00054E1D /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,6 +326,7 @@
 				329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */,
 				329E76721FBB1E7900637FCD /* NewStudentModel.swift in Sources */,
 				329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */,
+				329E76761FBEEC0E00637FCD /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +334,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				329E7B051FB5EA3F00054E1D /* StudentSignUpTests.swift in Sources */,
+				329E76821FBF23A200637FCD /* ColorPalette.swift in Sources */,
+				329E767F1FBF239D00637FCD /* DataManager.swift in Sources */,
+				329E768A1FBF25EB00637FCD /* StartScreenViewController.swift in Sources */,
+				329E768B1FBF25EB00637FCD /* NewStudentViewController.swift in Sources */,
+				329E76811FBF23A200637FCD /* NewStudentModel.swift in Sources */,
+				329E767E1FBF235200637FCD /* DataManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +347,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329E76861FBF23AA00637FCD /* NewStudentViewController.swift in Sources */,
+				329E76881FBF25E800637FCD /* DataManager.swift in Sources */,
 				329E7B101FB5EA3F00054E1D /* StudentSignUpUITests.swift in Sources */,
+				329E76871FBF25E800637FCD /* NewStudentModel.swift in Sources */,
+				329E76851FBF23AA00637FCD /* StartScreenViewController.swift in Sources */,
+				329E76891FBF25E800637FCD /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,26 +7,19 @@
 //
 
 import UIKit
-//import New
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DataManagerDelegate {
 
     let dataManager = DataManager()
+    weak var progressIndicator : UIProgressView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dataManager.loadStudentData()
-
         setupViews()
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//    }
-
     func setupViews() {
-        let unidaysYellow = UIColor.init(red: 225.0/255.0, green: 250.0/255.0, blue: 90.0/255.0, alpha: 1.0)
 
         self.view.backgroundColor = unidaysYellow
 
@@ -102,16 +95,45 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @objc func uploadAction(sender:UIButton!) {
-        let newStudentData = Student(firstName: "a", lastName: "b", gender: "c", email: "d", university: "e")
-        dataManager.saveNewStudentData(newData: newStudentData)
+    @objc func uploadAction() {
+        if !self.dataManager.isReadyToUpload() {
+            let alert = UIAlertController(title: "Nothing to upload", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        // get student data
+        dataManager.delegate = self
+        let student = dataManager.uploadStudent()
 
-        print("Uploading")
-        let alert = UIAlertController(title: "Uploading...", message: "Please wait", preferredStyle: UIAlertControllerStyle.alert)
+        // build alert view
+        let alert = UIAlertController(title: "Uploading...", message: "\(student.firstName ?? "") \(student.lastName ?? "")", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: {
+            // build progress bar and start upload
+            let margin:CGFloat = 8.0
+            let rect = CGRect(x:margin, y:72.0, width:alert.view.frame.width - margin * 2.0 , height: 2.0)
+            let progressView = UIProgressView(frame: rect)
+            self.progressIndicator = progressView
+            progressView.progress = 0.5
+            progressView.tintColor = UIColor.blue
+            alert.view.addSubview(progressView)
+        })
+        
     }
     
+    @objc func uploadProgress(progress:Float) {
+//        print("Progress at \(progress)")
+        self.progressIndicator?.setProgress(progress, animated: false)
+        if progress >= 1.0 {
+            self.dismiss(animated: true, completion: {
+                if self.dataManager.isReadyToUpload() {
+                    self.uploadAction()
+                }
+            })
+        }
+    }
+
     @objc func addNewStudent(sender: UIButton!) {
         let newStudentViewController:NewStudentViewController = NewStudentViewController()
         newStudentViewController.dataManager = dataManager

@@ -8,14 +8,6 @@
 
 import Foundation
 
-//struct Student {
-//    var firstName : String?
-//    var lastName : String?
-//    var gender : String?
-//    var email : String?
-//    var university : String?
-//}
-
 class Student: NSObject, NSCoding {
     
     var firstName : String?

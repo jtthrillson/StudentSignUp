@@ -27,8 +27,6 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
 
     func setupViews() {
 
-        let unidaysBlue = UIColor.init(red: 31.0/255.0, green: 188.0/255.0, blue: 210.0/255.0, alpha: 1.0)
-        let unidaysGreen = UIColor.init(red: 47.0/255.0, green: 212.0/255.0, blue: 123.0/255.0, alpha: 1.0)
         // grey 363537
         // dark blue 086788
         self.view.backgroundColor = unidaysBlue
@@ -235,10 +233,12 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         if textField === firstNameTextfield {
             lastNameTextfield?.becomeFirstResponder()
         } else if textField === lastNameTextfield {
+            textField.resignFirstResponder()
             genderDropDown?.becomeFirstResponder()
         } else if textField === genderDropDown {
             emailTextfield?.becomeFirstResponder()
         } else if textField === emailTextfield {
+            textField.resignFirstResponder()
             universityDropDown?.becomeFirstResponder()
         } else if textField === universityDropDown {
             textField.resignFirstResponder()
@@ -249,6 +249,8 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         return false
     }
 }
+
+// TODO : scroll to keep text field in view when keyboard appears
 
 //extension NewStudentViewController {
 //
