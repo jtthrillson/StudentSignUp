@@ -9,7 +9,7 @@
 import UIKit
 
 class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
-    var newStudentData : Student = Student()
+    weak var dataManager : DataManager?
     let stackView = UIStackView()
     var showingGenderPicker = false
     var showingUniversityPicker = false
@@ -110,12 +110,6 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
         
         if errorMsg.count < 1 {
-            newStudentData.firstName = firstNameTextfield!.text
-            newStudentData.lastName = lastNameTextfield!.text
-            newStudentData.gender = genderDropDown!.text
-            newStudentData.email = emailTextfield!.text
-            newStudentData.university = universityDropDown!.text
-            
             saveData()
             
             dismiss(animated: true, completion: nil)
@@ -136,17 +130,20 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         alert.isModalInPopover = true
         
         let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
         
         picker.delegate = self
         picker.dataSource = self
         
         alert.view.addSubview(picker)
         
-        picker.widthAnchor.constraint(equalToConstant: 200.0).isActive = true
-        picker.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
+        picker.widthAnchor.constraint(greaterThanOrEqualToConstant: 200.0).isActive = true
+        picker.heightAnchor.constraint(greaterThanOrEqualToConstant: 200.0).isActive = true
         picker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor).isActive = true
         picker.centerYAnchor.constraint(equalTo: alert.view.centerYAnchor).isActive = true
-        
+        alert.view.widthAnchor.constraint(greaterThanOrEqualTo: picker.widthAnchor).isActive = true
+        alert.view.heightAnchor.constraint(greaterThanOrEqualTo: picker.heightAnchor).isActive = true
+
         present(alert, animated: true, completion:nil)
     }
     
@@ -167,12 +164,9 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func saveData() {
-//        var students : [Student] = []
-//        if let data = UserDefaults.standard.value(forKey:"students") as? Data {
-//            students = try! PropertyListDecoder().decode(Array<Student>.self, from: data)
-//        }
-//        students.append(newStudentData)
-//        UserDefaults.standard.set(try? PropertyListEncoder().encode(students), forKey:"students")
+        let newStudentData = Student(firstName: firstNameTextfield?.text, lastName: lastNameTextfield?.text, gender: genderDropDown?.text, email: emailTextfield?.text, university: universityDropDown?.text)
+        
+        dataManager?.saveNewStudentData(newData: newStudentData)
     }
     
     // MARK: UIPickerViewDataSource Functions
@@ -206,11 +200,9 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
     func pickerView(_: UIPickerView, didSelectRow: Int, inComponent: Int) {
         if showingGenderPicker {
             self.genderDropDown?.text = Constants.genders[didSelectRow]
-            newStudentData.gender = Constants.genders[didSelectRow]
         }
         if showingUniversityPicker {
             self.universityDropDown?.text = Constants.universityList[didSelectRow]
-            newStudentData.university = Constants.universityList[didSelectRow]
         }
         self.dismiss(animated: true, completion: {
             if self.showingGenderPicker {
@@ -239,8 +231,7 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField === firstNameTextfield {
             lastNameTextfield?.becomeFirstResponder()
         } else if textField === lastNameTextfield {
@@ -252,11 +243,9 @@ class NewStudentViewController: UIViewController, UIPickerViewDataSource, UIPick
         } else if textField === universityDropDown {
             textField.resignFirstResponder()
         } else {
-            // Not found, so remove keyboard.
             textField.resignFirstResponder()
             addStudentAction(sender: nil)
         }
-        // Do not add a line break
         return false
     }
 }

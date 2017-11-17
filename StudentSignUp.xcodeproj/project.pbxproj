@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		329E766F1FBB1E5900637FCD /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */; };
 		329E76721FBB1E7900637FCD /* NewStudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76711FBB1E7900637FCD /* NewStudentModel.swift */; };
+		329E76741FBDC21400637FCD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E76731FBDC21400637FCD /* DataManager.swift */; };
 		329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */; };
 		329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */; };
 		329E7AF51FB5EA3E00054E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E7AF31FB5EA3E00054E1D /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		329E766E1FBB1E5900637FCD /* NewStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentViewController.swift; sourceTree = "<group>"; };
 		329E76711FBB1E7900637FCD /* NewStudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentModel.swift; sourceTree = "<group>"; };
+		329E76731FBDC21400637FCD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		329E7AEC1FB5EA3E00054E1D /* StudentSignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentSignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329E7AEF1FB5EA3E00054E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		329E7AF11FB5EA3E00054E1D /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				329E76711FBB1E7900637FCD /* NewStudentModel.swift */,
+				329E76731FBDC21400637FCD /* DataManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				329E766F1FBB1E5900637FCD /* NewStudentViewController.swift in Sources */,
+				329E76741FBDC21400637FCD /* DataManager.swift in Sources */,
 				329E7AF21FB5EA3E00054E1D /* StartScreenViewController.swift in Sources */,
 				329E76721FBB1E7900637FCD /* NewStudentModel.swift in Sources */,
 				329E7AF01FB5EA3E00054E1D /* AppDelegate.swift in Sources */,

@@ -8,12 +8,45 @@
 
 import Foundation
 
-struct Student {
+//struct Student {
+//    var firstName : String?
+//    var lastName : String?
+//    var gender : String?
+//    var email : String?
+//    var university : String?
+//}
+
+class Student: NSObject, NSCoding {
+    
     var firstName : String?
     var lastName : String?
     var gender : String?
     var email : String?
     var university : String?
+
+    init(firstName: String?, lastName: String?, gender: String?, email: String?, university: String?) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.gender = gender
+        self.email = email
+        self.university = university
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        firstName = aDecoder.decodeObject(forKey: "firstName") as? String ?? ""
+        lastName = aDecoder.decodeObject(forKey: "lastName") as? String ?? ""
+        gender = aDecoder.decodeObject(forKey: "gender") as? String ?? ""
+        email = aDecoder.decodeObject(forKey: "email") as? String ?? ""
+        university = aDecoder.decodeObject(forKey: "university") as? String ?? ""
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(firstName, forKey: "firstName")
+        aCoder.encode(lastName, forKey: "lastName")
+        aCoder.encode(gender, forKey: "gender")
+        aCoder.encode(email, forKey: "email")
+        aCoder.encode(university, forKey: "university")
+    }
 }
 
 struct Constants {

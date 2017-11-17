@@ -11,9 +11,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let dataManager = DataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dataManager.loadStudentData()
+
+        setupViews()
+    }
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//    }
+
+    func setupViews() {
         let unidaysYellow = UIColor.init(red: 225.0/255.0, green: 250.0/255.0, blue: 90.0/255.0, alpha: 1.0)
 
         self.view.backgroundColor = unidaysYellow
@@ -49,15 +61,7 @@ class ViewController: UIViewController {
             self.view.addSubview(spacerView)
         }
 
-        // Set up autolayout constraints
-        // **********************************************************
-        // Hard define height and width for the image and buttons
-        // Center everything horizontally
-        // Equal spacing vertically
-        // Autosizing invisible spacer views between each important view
-
         let importantViews = [unidaysView, newStudentButton, uploadButton]
-//        let spacerViews = [spacerViewA, spacerViewB, spacerViewC, spacerViewD]
 
         let allViews = ["unidaysView": unidaysView,
                      "newStudentButton": newStudentButton,
@@ -99,6 +103,9 @@ class ViewController: UIViewController {
     }
 
     @objc func uploadAction(sender:UIButton!) {
+        let newStudentData = Student(firstName: "a", lastName: "b", gender: "c", email: "d", university: "e")
+        dataManager.saveNewStudentData(newData: newStudentData)
+
         print("Uploading")
         let alert = UIAlertController(title: "Uploading...", message: "Please wait", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
@@ -107,6 +114,7 @@ class ViewController: UIViewController {
     
     @objc func addNewStudent(sender: UIButton!) {
         let newStudentViewController:NewStudentViewController = NewStudentViewController()
+        newStudentViewController.dataManager = dataManager
         
         self.present(newStudentViewController, animated: true, completion: nil)        
     }
